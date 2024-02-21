@@ -4,7 +4,8 @@
     { "name": "Iphone", "price": 1000 },
     { "name": "Samsung", "price": "800" },
     { "name": "ASUS", "price": "1300" },
-    { "name": "Dell", "price": 300 }
+    { "name": "Dell", "price": 300 },
+    { "name": "HP notebook", "price": 800 }
   ],
   "users": [
     { "name": "Khosoo", "age": 22 },
