@@ -1,0 +1,19 @@
+{
+  "products": [
+    { "name": "macbook", "price": 1200 },
+    { "name": "Iphone", "price": 1000 },
+    { "name": "Samsung", "price": "800" },
+    { "name": "ASUS", "price": "1300" },
+    { "name": "Dell", "price": 300 }
+  ],
+  "users": [
+    { "name": "Khosoo", "age": 22 },
+    { "name": "Baganaa", "age": 25 },
+    { "name": "Bold", "age": 32 },
+    { "name": "Bataa", "age": "32" },
+    { "name": "Dorj", "age": "34" },
+    { "name": "Suren", "age": "23" },
+    { "name": "Khosoo", "age": 23 },
+    { "name": "Temuujin", "age": 22 }
+  ]
+}
