@@ -25,11 +25,12 @@ export default function Home() {
       console.log(user.id);
       return user.id != user_id;
     });
+    setData(new_data);
   };
 
   return (
     <main className="flex justify-center items-center container mx-auto gap-10 mt-[100px]">
-      <AddUser data={data} userDelete={userDelete()} />
+      <AddUser datas={data} userDelete={userDelete} />
     </main>
   );
 }

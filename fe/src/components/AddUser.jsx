@@ -3,7 +3,6 @@ import { useState } from "react";
 import { nanoid } from "nanoid";
 
 export default function AddUser(props) {
-  console.log("pro", props.data);
   const newid = nanoid();
 
   const BE_URL = "http://localhost:3001/add-user";
@@ -51,9 +50,7 @@ export default function AddUser(props) {
     console.log(data);
   };
 
-  const handleDelete = (user_id) => {
-    
-  };
+  const handleDelete = (user_id) => {};
 
   return (
     <main className="flex justify-center items-center container mx-auto gap-10 mt-[50px] w-[900px] flex-wrap">
@@ -130,7 +127,7 @@ export default function AddUser(props) {
             <span className="font-bold">Name</span>
             <span className="font-bold">Age</span>
           </div>
-          {props.data?.allData.users.map((user, index) => (
+          {props?.datas?.allData?.users?.map((user, index) => (
             <div className="flex gap-2" key={index}>
               <div className="flex gap-4">
                 <input
@@ -170,7 +167,7 @@ export default function AddUser(props) {
             <span className="font-bold">Name</span>
             <span className="font-bold">Price</span>
           </div>
-          {props.data?.allData.products.map((product, index) => (
+          {props?.datas?.allData?.products?.map((product, index) => (
             <div className="flex gap-2" key={index}>
               <div className="flex gap-4">
                 <input
