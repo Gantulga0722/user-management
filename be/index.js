@@ -12,6 +12,14 @@ app.use(cors());
 const fs = require("fs");
 const { error } = require("console");
 
+const nanoid = require("nanoid");
+
+app.get("/users", (req, res) => {
+  const newid = nanoid();
+  res.type = "application/json";
+  res.send({ abc: users });
+});
+
 app.post("/add-user", (req, res) => {
   const newUser = req.body;
 
@@ -62,6 +70,38 @@ app.post("/add-product", (req, res) => {
   res.send("User added successfully");
 });
 
+app.delete("delete-user", (req, res) => {
+  const idToDelete = req.body;
+});
+
+app.post("update-user", (req, res) => {
+  const { id, updatedData } = req.body;
+});
+
 app.listen(3001, () => {
   console.log("Server is listening at port 3001");
 });
+
+const newUser = {
+  id: 123,
+  name: "Ali",
+  age: 23,
+  surename: "Khan",
+  email: "asd",
+};
+
+const updateData = {
+  age: 15,
+  email: "andyerderne@gmail.com",
+};
+
+const updatedData = {
+  ...newUser,
+  ...updateData,
+};
+
+function reedFile() {
+  return users;
+}
+
+function writeFile(users) {}

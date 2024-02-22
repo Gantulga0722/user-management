@@ -1,7 +1,10 @@
 import { data } from "autoprefixer";
 import { useState } from "react";
+import { nanoid } from "nanoid";
 
 export default function AddUser() {
+  const newid = nanoid();
+
   const BE_URL = "http://localhost:3001/add-user";
   const BE_URLP = "http://localhost:3001/add-product";
 
@@ -10,6 +13,7 @@ export default function AddUser() {
     const data = {
       name: e.target.username.value,
       age: Number(e.target.userage.value),
+      id: newid,
     };
 
     const options = {
@@ -30,6 +34,7 @@ export default function AddUser() {
     const data = {
       name: e.target.productname.value,
       price: Number(e.target.productprice.value),
+      id: newid,
     };
 
     const options = {
