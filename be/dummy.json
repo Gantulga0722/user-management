@@ -1,4 +1,1 @@
-{
-  "products": [{ "name": "macbook", "price": 1200, "id": 1 }],
-  "users": [{ "name": "Khosoo", "age": 22, "id": 1 }]
-}
+{"products":[{"name":"macbook","price":1200,"id":1},{"name":"Samsung","price":1300,"id":"30o_hOmVpwlcw9VR0-Sxh"},{"name":"Dell","price":1300,"id":"uaHJdeJ5r1p-3XVvWXq50"}],"users":[{"name":"Khosoo","age":22,"id":1},{"name":"Bataa","age":32,"id":"rhsqc58JMo8iH-oJdYx8g"},{"name":"dor","age":32,"id":"5suRG0EHEfLCFAT8iDWka"},{"name":"32","age":null,"id":"pOlUcyzcUMjHlG2IEku9C"}]}

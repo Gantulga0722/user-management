@@ -1,5 +1,6 @@
 const express = require("express");
 const { products, users } = require("./dummy.json");
+const allData = require("./dummy.json");
 
 const app = express();
 
@@ -12,12 +13,14 @@ app.use(cors());
 const fs = require("fs");
 const { error } = require("console");
 
-const nanoid = require("nanoid");
-
 app.get("/users", (req, res) => {
-  const newid = nanoid();
   res.type = "application/json";
-  res.send({ abc: users });
+  res.send({ allData: allData });
+});
+
+app.get("/products", (req, res) => {
+  res.type = "application/json";
+  res.send({ users: users });
 });
 
 app.post("/add-user", (req, res) => {

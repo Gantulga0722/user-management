@@ -2,7 +2,8 @@ import { data } from "autoprefixer";
 import { useState } from "react";
 import { nanoid } from "nanoid";
 
-export default function AddUser() {
+export default function AddUser(props) {
+  console.log("pro", props.data);
   const newid = nanoid();
 
   const BE_URL = "http://localhost:3001/add-user";
@@ -50,8 +51,10 @@ export default function AddUser() {
     console.log(data);
   };
 
+  const handleDelete = () => {};
+
   return (
-    <main className="flex justify-center items-center container mx-auto gap-10 mt-[100px]">
+    <main className="flex justify-center items-center container mx-auto gap-10 mt-[100px] w-[900px] flex-wrap">
       <form action="" onSubmit={handleSubmitUser}>
         <div className="flex w-[350px] h-[200px] rounded-[12px] gap-5 border flex-col p-4 justify-center">
           <div className="flex gap-2">
@@ -82,6 +85,22 @@ export default function AddUser() {
           />
         </div>
       </form>
+      <div className="flex w-[350px] h-[200px] rounded-[12px] gap-5 border flex-col p-4 justify-center">
+        {props.data?.allData.users.map((user, index) => (
+          <div className="flex gap-2" key={index}>
+            <div className="flex gap-4">
+              <span>{user.name}</span>
+              <span>{user.age} </span>
+            </div>
+            <button className="flex justify-center items-center rounded-[50%] border bg-[#9494d2] w-[30px]">
+              X
+            </button>
+            <button className="flex justify-center items-center rounded-[5px] border bg-[#9494d2] w-[50px]">
+              Edit
+            </button>
+          </div>
+        ))}
+      </div>
       <form action="" onSubmit={handleSubmitProduct}>
         <div className="flex w-[350px] h-[200px] rounded-[12px] gap-5 border flex-col p-4 justify-center">
           <div className="flex gap-2">
@@ -112,6 +131,27 @@ export default function AddUser() {
           />
         </div>
       </form>
+      <div className="flex w-[350px] h-[200px] rounded-[12px] gap-5 border flex-col p-4 justify-center">
+        {props.data?.allData.products.map((user, index) => (
+          <div className="flex gap-2" key={index}>
+            <div className="flex gap-4">
+              <span>{user.name}</span>
+              <span>{user.price} </span>
+            </div>
+            <button
+              className="flex justify-center items-center rounded-[50%] border bg-[#9494d2] w-[30px]"
+              onClick={() => {
+                handleDelete(user);
+              }}
+            >
+              X
+            </button>
+            <button className="flex justify-center items-center rounded-[5px] border bg-[#9494d2] w-[50px]">
+              Edit
+            </button>
+          </div>
+        ))}
+      </div>
     </main>
   );
 }
