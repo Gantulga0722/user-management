@@ -18,11 +18,6 @@ app.get("/users", (req, res) => {
   res.send({ allData: allData });
 });
 
-app.get("/products", (req, res) => {
-  res.type = "application/json";
-  res.send({ users: users });
-});
-
 app.post("/add-user", (req, res) => {
   const newUser = req.body;
 

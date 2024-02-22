@@ -51,106 +51,148 @@ export default function AddUser(props) {
     console.log(data);
   };
 
-  const handleDelete = () => {};
+  const handleDelete = (user_id) => {
+    
+  };
 
   return (
-    <main className="flex justify-center items-center container mx-auto gap-10 mt-[100px] w-[900px] flex-wrap">
-      <form action="" onSubmit={handleSubmitUser}>
-        <div className="flex w-[350px] h-[200px] rounded-[12px] gap-5 border flex-col p-4 justify-center">
-          <div className="flex gap-2">
-            <label htmlFor="name">User Name:</label>
-            <input
-              type="text"
-              placeholder="enter user name"
-              id="username"
-              className="border rounded-[5px] p-[2px]"
-              name="username"
-            />
-          </div>
-          <div className="flex gap-2">
-            <label htmlFor="age">User Age:</label>
-            <input
-              type="text"
-              placeholder="enter user age"
-              id="userage"
-              className="border rounded-[5px] p-[2px]"
-              name="userage"
-            />
-          </div>
-
-          <input
-            className="flex justify-center items-center rounded-[5px] border bg-[#9494d2] w-[100px]"
-            type="submit"
-            name="Add User"
-          />
-        </div>
-      </form>
-      <div className="flex w-[350px] h-[200px] rounded-[12px] gap-5 border flex-col p-4 justify-center">
-        {props.data?.allData.users.map((user, index) => (
-          <div className="flex gap-2" key={index}>
-            <div className="flex gap-4">
-              <span>{user.name}</span>
-              <span>{user.age} </span>
+    <main className="flex justify-center items-center container mx-auto gap-10 mt-[50px] w-[900px] flex-wrap">
+      <div className="flex gap-10">
+        <form action="" onSubmit={handleSubmitUser}>
+          <div className="flex w-[350px] h-[200px] rounded-[12px] gap-5 border-[#0098BD] border flex-col p-4 justify-center">
+            <div className="flex gap-2">
+              <label htmlFor="name">User Name:</label>
+              <input
+                type="text"
+                placeholder="Enter user name"
+                id="username"
+                className="border rounded-[5px] p-[2px] outline-none"
+                name="username"
+              />
             </div>
-            <button className="flex justify-center items-center rounded-[50%] border bg-[#9494d2] w-[30px]">
-              X
-            </button>
-            <button className="flex justify-center items-center rounded-[5px] border bg-[#9494d2] w-[50px]">
-              Edit
-            </button>
+            <div className="flex gap-2">
+              <label htmlFor="age">User Age:</label>
+              <input
+                type="text"
+                placeholder="Enter user age"
+                id="userage"
+                className="border rounded-[5px] p-[2px] outline-none"
+                name="userage"
+              />
+            </div>
+            <div className="flex justify-center">
+              <input
+                className="flex justify-center items-center rounded-[5px] border bg-[#0098BD] text-white w-[100px] outline-none "
+                type="submit"
+                name="Add Users"
+              />
+            </div>
           </div>
-        ))}
+        </form>
+        <form action="" onSubmit={handleSubmitProduct}>
+          <div className="flex w-[350px] h-[200px] rounded-[12px] gap-5 border border-[#0098BD] flex-col p-4 justify-center">
+            <div className="flex gap-2">
+              <label htmlFor="productname">Product Name:</label>
+              <input
+                type="text"
+                placeholder="Enter product name"
+                id="productname"
+                className="border rounded-[5px] p-[2px] outline-none"
+                name="productname"
+              />
+            </div>
+            <div className="flex gap-2">
+              <label htmlFor="productprice">Product Price:</label>
+              <input
+                type="text"
+                placeholder="Enter product price"
+                id="productprice"
+                className="border rounded-[5px] p-[2px] outline-none"
+                name="productprice"
+              />
+            </div>
+            <div className="flex justify-center">
+              <input
+                className="flex justify-center items-center rounded-[5px] border bg-[#0098BD] w-[100px] outline-none text-white"
+                type="submit"
+                name="Add Product"
+              />
+            </div>
+          </div>
+        </form>
       </div>
-      <form action="" onSubmit={handleSubmitProduct}>
-        <div className="flex w-[350px] h-[200px] rounded-[12px] gap-5 border flex-col p-4 justify-center">
-          <div className="flex gap-2">
-            <label htmlFor="productname">Product Name:</label>
-            <input
-              type="text"
-              placeholder="enter product name"
-              id="productname"
-              className="border rounded-[5px] p-[2px]"
-              name="productname"
-            />
+      <div className="flex gap-10">
+        <div className="flex w-[350px] h-auto rounded-[12px] gap-5 border border-[#0098BD] flex-col p-4">
+          <div className="flex justify-center p-1 border-b border-[#0098BD]">
+            <h1 className="text-[20px] font-bold">Users</h1>
           </div>
-          <div className="flex gap-2">
-            <label htmlFor="productprice">Product Price:</label>
-            <input
-              type="text"
-              placeholder="enter product price"
-              id="productprice"
-              className="border rounded-[5px] p-[2px]"
-              name="productprice"
-            />
+          <div className="flex gap-[115px]">
+            <span className="font-bold">Name</span>
+            <span className="font-bold">Age</span>
           </div>
-
-          <input
-            className="flex justify-center items-center rounded-[5px] border bg-[#9494d2] w-[100px]"
-            type="submit"
-            name="Add Product"
-          />
-        </div>
-      </form>
-      <div className="flex w-[350px] h-[200px] rounded-[12px] gap-5 border flex-col p-4 justify-center">
-        {props.data?.allData.products.map((user, index) => (
-          <div className="flex gap-2" key={index}>
-            <div className="flex gap-4">
-              <span>{user.name}</span>
-              <span>{user.price} </span>
+          {props.data?.allData.users.map((user, index) => (
+            <div className="flex gap-2" key={index}>
+              <div className="flex gap-4">
+                <input
+                  type="text"
+                  value={user.name}
+                  className="w-[140px] outline-none"
+                />
+                <input
+                  type="text"
+                  value={user.age}
+                  className="w-[50px] outline-none"
+                />
+                <input
+                  type="hidden"
+                  value={user.id}
+                  name="userid"
+                  className="w-[50px] outline-none"
+                />
+              </div>
+              <button className="flex justify-center items-center rounded-[50%] border bg-[#0098BD] text-white w-[25px]">
+                E
+              </button>
+              <button
+                className="flex justify-center items-center rounded-[50%] border bg-[#0098BD] text-white w-[25px]"
+                onClick={handleDelete(user.id)}
+              >
+                X
+              </button>
             </div>
-            <button
-              className="flex justify-center items-center rounded-[50%] border bg-[#9494d2] w-[30px]"
-              onClick={() => {
-                handleDelete(user);
-              }}
-            >
-              X
-            </button>
-            <button className="flex justify-center items-center rounded-[5px] border bg-[#9494d2] w-[50px]">
-              Edit
-            </button>
+          ))}
+        </div>
+        <div className="flex w-[350px] h-auto rounded-[12px] gap-5 border border-[#0098BD] flex-col p-4">
+          <div className="flex justify-center p-1 border-b border-[#0098BD]">
+            <h1 className="text-[20px] font-bold">Products</h1>
           </div>
-        ))}
+          <div className="flex gap-[115px]">
+            <span className="font-bold">Name</span>
+            <span className="font-bold">Price</span>
+          </div>
+          {props.data?.allData.products.map((product, index) => (
+            <div className="flex gap-2" key={index}>
+              <div className="flex gap-4">
+                <input
+                  type="text"
+                  value={product.name}
+                  className="w-[140px] outline-none"
+                />
+                <input
+                  type="text"
+                  value={product.price}
+                  className="w-[50px] outline-none"
+                />
+              </div>
+              <button className="flex justify-center items-center rounded-[50%] border bg-[#0098BD] text-white w-[25px]">
+                E
+              </button>
+              <button className="flex justify-center items-center rounded-[50%] border bg-[#0098BD] text-white w-[25px]">
+                X
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   );

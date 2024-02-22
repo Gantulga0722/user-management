@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const [data, setData] = useState();
   // const [product, setProduct] = useState();
+  console.log("my data:", data);
 
   useEffect(() => {
     async function fet() {
@@ -18,9 +19,17 @@ export default function Home() {
     }
     fet();
   }, []);
+
+  const userDelete = (user_id) => {
+    let new_data = data?.allData?.users.filter((user) => {
+      console.log(user.id);
+      return user.id != user_id;
+    });
+  };
+
   return (
     <main className="flex justify-center items-center container mx-auto gap-10 mt-[100px]">
-      <AddUser data={data} />
+      <AddUser data={data} userDelete={userDelete()} />
     </main>
   );
 }
