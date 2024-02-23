@@ -3,6 +3,11 @@ import { useState } from "react";
 import { nanoid } from "nanoid";
 
 export default function AddUser(props) {
+  const { userDelete } = props.userDelete;
+  // console.log("prot", props.userDelete);
+  console.log("products", props.products);
+  console.log("user", props?.datas);
+
   const newid = nanoid();
 
   const BE_URL = "http://localhost:3001/add-user";
@@ -50,7 +55,7 @@ export default function AddUser(props) {
     console.log(data);
   };
 
-  const handleDelete = (user_id) => {};
+  const newUsersList = (user_id) => {};
 
   return (
     <main className="flex justify-center items-center container mx-auto gap-10 mt-[50px] w-[900px] flex-wrap">
@@ -127,7 +132,7 @@ export default function AddUser(props) {
             <span className="font-bold">Name</span>
             <span className="font-bold">Age</span>
           </div>
-          {props?.datas?.allData?.users?.map((user, index) => (
+          {props?.datas?.users?.map((user, index) => (
             <div className="flex gap-2" key={index}>
               <div className="flex gap-4">
                 <input
@@ -140,19 +145,15 @@ export default function AddUser(props) {
                   value={user.age}
                   className="w-[50px] outline-none"
                 />
-                <input
-                  type="hidden"
-                  value={user.id}
-                  name="userid"
-                  className="w-[50px] outline-none"
-                />
               </div>
               <button className="flex justify-center items-center rounded-[50%] border bg-[#0098BD] text-white w-[25px]">
                 E
               </button>
               <button
                 className="flex justify-center items-center rounded-[50%] border bg-[#0098BD] text-white w-[25px]"
-                onClick={handleDelete(user.id)}
+                onClick={() => {
+                  props.userDelete(user.id);
+                }}
               >
                 X
               </button>
@@ -167,7 +168,7 @@ export default function AddUser(props) {
             <span className="font-bold">Name</span>
             <span className="font-bold">Price</span>
           </div>
-          {props?.datas?.allData?.products?.map((product, index) => (
+          {props?.products?.products?.map((product, index) => (
             <div className="flex gap-2" key={index}>
               <div className="flex gap-4">
                 <input
@@ -184,7 +185,12 @@ export default function AddUser(props) {
               <button className="flex justify-center items-center rounded-[50%] border bg-[#0098BD] text-white w-[25px]">
                 E
               </button>
-              <button className="flex justify-center items-center rounded-[50%] border bg-[#0098BD] text-white w-[25px]">
+              <button
+                className="flex justify-center items-center rounded-[50%] border bg-[#0098BD] text-white w-[25px]"
+                onClick={() => {
+                  props.productDelete(product.id);
+                }}
+              >
                 X
               </button>
             </div>

@@ -1,17 +1,1 @@
-{
-  "products": [
-    { "name": "Macbook", "price": 1200, "id": 1 },
-    { "name": "Samsung", "price": 1300, "id": "30o_hOmVpwlcw9VR0-Sxh" },
-    { "name": "Dell", "price": 1300, "id": "uaHJdeJ5r1p-3XVvWXq50" },
-    { "name": "HP notebook", "price": 1100, "id": "S9E_KdgyVZCRjsROrEuuw" },
-    { "name": "Asus notebook", "price": 700, "id": "D3cbUwUdBuE22BNAyYUSS" }
-  ],
-  "users": [
-    { "name": "Khosoo", "age": 22, "id": 1 },
-    { "name": "Bataa", "age": 32, "id": "rhsqc58JMo8iH-oJdYx8g" },
-    { "name": "Dorj", "age": 32, "id": "5suRG0EHEfLCFAT8iDWka" },
-    { "name": "Baldan", "age": 45, "id": "Ff9Xkch8rZ8dg5HepXztK" },
-    { "name": "Suren", "age": 44, "id": "AyrTWxyY4IkUuUGfPQtrp" },
-    { "name": "Temuujin", "age": 22, "id": "nSvToVj1hqfV_QzXobyYs" }
-  ]
-}
+{"users":[{"name":"Bataa","age":23,"id":"uytsR6N8oV10LoS4-UIPw"},{"name":"Suren","age":43,"id":"GngDRZ6BjQt6ULswBb_yU"}]}

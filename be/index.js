@@ -1,6 +1,6 @@
 const express = require("express");
-const { products, users } = require("./dummy.json");
-const allData = require("./dummy.json");
+const { users } = require("./dummy.json");
+const { products } = require("./dummy copy.json");
 
 const app = express();
 
@@ -15,7 +15,11 @@ const { error } = require("console");
 
 app.get("/users", (req, res) => {
   res.type = "application/json";
-  res.send({ allData: allData });
+  res.send({ users: users });
+});
+app.get("/products", (req, res) => {
+  res.type = "application/json";
+  res.send({ products: products });
 });
 
 app.post("/add-user", (req, res) => {
@@ -46,14 +50,14 @@ app.post("/add-user", (req, res) => {
 app.post("/add-product", (req, res) => {
   const newProduct = req.body;
 
-  fs.readFile("dummy.json", (error, data) => {
+  fs.readFile("dummy copy.json", (error, data) => {
     console.log(data);
     if (error) {
       console.log("Error in reading file");
     } else {
       const jsonFile = JSON.parse(data.toString());
       jsonFile.products.push(newProduct);
-      fs.writeFile("dummy.json", JSON.stringify(jsonFile), (err) => {
+      fs.writeFile("dummy copy.json", JSON.stringify(jsonFile), (err) => {
         if (err) {
           console.log(err);
           res.send("error happened");
@@ -68,8 +72,36 @@ app.post("/add-product", (req, res) => {
   res.send("User added successfully");
 });
 
-app.delete("delete-user", (req, res) => {
-  const idToDelete = req.body;
+app.post("/delete-user", (req, res) => {
+  console.log("req.body: ", req.body);
+
+  fs.writeFile("dummy.json", JSON.stringify({ users: req.body }), (err) => {
+    if (err) {
+      console.log(err);
+      res.send("error happened");
+    } else {
+      console.log("success");
+      res.send("User delete successfully");
+    }
+  });
+});
+
+app.post("/delete-product", (req, res) => {
+  console.log("req.body: ", req.body);
+
+  fs.writeFile(
+    "dummy copy.json",
+    JSON.stringify({ products: req.body }),
+    (err) => {
+      if (err) {
+        console.log(err);
+        res.send("error happened");
+      } else {
+        console.log("success");
+        res.send("User delete successfully");
+      }
+    }
+  );
 });
 
 app.post("update-user", (req, res) => {
