@@ -17,6 +17,7 @@ app.get("/users", (req, res) => {
   res.type = "application/json";
   res.send({ users: users });
 });
+
 app.get("/products", (req, res) => {
   res.type = "application/json";
   res.send({ products: products });
@@ -104,8 +105,11 @@ app.post("/delete-product", (req, res) => {
   );
 });
 
-app.post("update-user", (req, res) => {
-  const { id, updatedData } = req.body;
+app.put("/update-user/data/:id", (req, res) => {
+  const id = req.params.id;
+  const updatedData = req.body;
+  data[id] = updatedData;
+  res.status(200).json({ message: "Data updated successfully." });
 });
 
 app.listen(3001, () => {

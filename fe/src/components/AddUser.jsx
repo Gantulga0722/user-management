@@ -4,9 +4,7 @@ import { nanoid } from "nanoid";
 
 export default function AddUser(props) {
   const { userDelete } = props.userDelete;
-  // console.log("prot", props.userDelete);
-  console.log("products", props.products);
-  console.log("user", props?.datas);
+  console.log("check", props.updateData);
 
   const newid = nanoid();
 
@@ -146,7 +144,12 @@ export default function AddUser(props) {
                   className="w-[50px] outline-none"
                 />
               </div>
-              <button className="flex justify-center items-center rounded-[50%] border bg-[#0098BD] text-white w-[25px]">
+              <button
+                className="flex justify-center items-center rounded-[50%] border bg-[#0098BD] text-white w-[25px]"
+                onClick={() => {
+                  props.updateData(user.id);
+                }}
+              >
                 E
               </button>
               <button

@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import AddUser from "@/components/AddUser";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import { RedirectType } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,9 +13,6 @@ export default function Home() {
 
   const [data, setData] = useState();
   const [product, setProduct] = useState();
-
-  console.log("check", data?.users);
-  console.log("check", product?.products);
 
   useEffect(() => {
     async function fet() {
@@ -61,6 +60,16 @@ export default function Home() {
     const FETCHED_JSON = await FETCHED_DATA.text();
   };
 
+  const updateData = async (id, updData) => {
+    try {
+      const response = await axios.put(`//update-user/data/${id}`);
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <main className="flex justify-center items-center container mx-auto gap-10 mt-[100px]">
       <AddUser
@@ -68,6 +77,7 @@ export default function Home() {
         userDelete={userDelete}
         products={product}
         productDelete={productDelete}
+        updateData={updateData}
       />
     </main>
   );
