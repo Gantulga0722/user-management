@@ -105,11 +105,9 @@ app.post("/delete-product", (req, res) => {
   );
 });
 
-app.put("/update-user/data/:id", (req, res) => {
-  const id = req.params.id;
-  const updatedData = req.body;
-  data[id] = updatedData;
-  res.status(200).json({ message: "Data updated successfully." });
+app.put("/update-user", (req, res) => {
+  const { id, newData } = req.body;
+  res.status(200).json({ message: "Update successfully" });
 });
 
 app.listen(3001, () => {

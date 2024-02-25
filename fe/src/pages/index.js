@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const BE_URLD = "http://localhost:3001/delete-user";
   const BE_URLDP = "http://localhost:3001/delete-product";
+  const BE_URLU = "http://localhost:3001/update-user";
 
   const [data, setData] = useState();
   const [product, setProduct] = useState();
@@ -61,13 +62,29 @@ export default function Home() {
   };
 
   const updateData = async (id, updData) => {
-    try {
-      const response = await axios.put(`//update-user/data/${id}`);
-      console.log(response.data);
-      return response.data;
-    } catch (error) {
-      console.error(error);
-    }
+    const options = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    fetch("http://localhost:3001/update-user", {
+      method: "PUT",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(updData),
+    })
+      .then((res) => {
+        if (res.ok) {
+          console.log("PUT request seccessful");
+        } else {
+          console.log("PUT request unsuccessful");
+        }
+        return res;
+      })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .then((error) => console.log(error));
   };
 
   return (
